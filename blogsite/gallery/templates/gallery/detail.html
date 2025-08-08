@@ -11,12 +11,8 @@ body {text-align: center;}
  
 </head>
 <body>
-    <h1>Products</h1>
-    {% for i in products %}
-        <td>
-            <a href="{% url 'product_detail' i.pk %}">{{i.name}}</a> 
-            : {{i.description}} <br>
-        </td>
-    {% endfor %}
+    <a href="{% url 'index_page' %}">Back to main page</a> <br><br>
+    the product name is : {{product.name}} <br>
+    the description is : {{product.description}}
 </body>
 </html>
