@@ -13,7 +13,7 @@ body {text-align: center;}
 <body>
     <a href="{% url 'index_page' %}">Back to main page</a> <br>
     <a href="{% url 'product_edit' product.pk %}">editing the product</a> <br>
-    
+    <a href="{% url 'product_delete' product.pk %}">delete product</a> <br>
     the product name is : {{product.name}} <br>
     the description is : {{product.description}}
 </body>
