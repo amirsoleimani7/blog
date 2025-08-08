@@ -15,23 +15,25 @@ def list_products(request):
     return render(request , 'gallery/index.html' ,context )
 
 def product_detail(request ,pk):
-
     product = get_object_or_404(Product ,pk=pk)
-
     context = {'product':product}
-
     return render(request , 'gallery/detail.html' , context)
 
 
-def edit_project(request , pk):
-
+def product_edit(request , pk):
     product = get_object_or_404(Product , pk=pk)
     if request.method == 'POST':
         form = ProductForm(request.POST, instance=product)
         if form.is_valid():
             form.save()
-            return redirect('index_page')
+            return redirect('product_detail', pk=product.pk)
     else:
         form = ProductForm(instance=product)
-        return render(request)
-        
+
+    context = {
+        'form' : form
+    }
+
+    return render(request , 'gallery/edit.html' , context)
+    
+

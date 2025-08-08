@@ -10,11 +10,13 @@ body {text-align: center;}
 </style>
  
 </head>
-<body>
-    <a href="{% url 'index_page' %}">Back to main page</a> <br>
-    <a href="{% url 'product_edit' product.pk %}">editing the product</a> <br>
-    
-    the product name is : {{product.name}} <br>
-    the description is : {{product.description}}
+<body>  
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form}}    
+        <input type="submit" value="submit">
+    </form>
+  
 </body>
 </html>
