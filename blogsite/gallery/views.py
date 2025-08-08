@@ -22,3 +22,16 @@ def product_detail(request ,pk):
 
     return render(request , 'gallery/detail.html' , context)
 
+
+def edit_project(request , pk):
+
+    product = get_object_or_404(Product , pk=pk)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect('index_page')
+    else:
+        form = ProductForm(instance=product)
+        return render(request)
+        
