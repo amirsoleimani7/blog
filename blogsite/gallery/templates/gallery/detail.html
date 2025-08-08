@@ -16,7 +16,7 @@ body {text-align: center;
     <a class="btn btn-secondary" href="{% url 'index_page' %}">Back to main page</a> 
     <a class="btn btn-primary" href="{% url 'product_edit' product.pk %}">editing the product</a> 
     <a class="btn btn-danger" href="{% url 'product_delete' product.pk %}">delete product</a> <br>
-
+    <br>
     <img src="{{ product.image.url }}" alt="{{ product.name }}" width="400"> <br>
     <b>{{product.name}}</b> <br>
     description :<b> {{product.description}}</b>
